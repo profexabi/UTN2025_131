@@ -1,6 +1,308 @@
 # UTN2025_131 :telescope:
 Repositorio de la TUP UTN 2025, Comision 131
 
+## JavaScript III
+```js
+/////////////////////
+// JavaScript III //
+// Scope y ambito, funciones, tipos de funciones, parametros y argumentos, funciones flecha
+
+
+
+//////////////////////////////
+// Parametros y Argumentos //
+
+// Funciones con parametros: Se pueden definir variables en las funciones que acepten valores cuando se les llama
+function sumame(a, b) {
+    let resultado = a + b;
+    console.log(`El resultado es : ${resultado}`);
+}
+
+sumame(5, 3);
+
+// Las funciones pueden devolver un valor, utilizando la keyword/palabra clave "return"
+function multiplicame(a, b) {
+    return a * b;
+}
+
+console.log(multiplicame(4, 5));
+
+// los parametros son los nombres de las variables que definimos en la declaracion de la funcion
+// los argumentos son los valores que pasamos a la funcion cuando la llamamos
+
+function saludame(nombre = "maestro") {
+    console.log(`Como le va ${nombre}`);
+}
+
+saludame();
+
+// Multiples parametros
+
+function sumarTresNumeros(a, b, c) {
+    let resultado = a + b + c + "";
+    return typeof resultado;
+}
+
+let sumaTres = sumarTresNumeros();
+console.log(sumaTres);
+
+
+// Tipos de funciones
+
+
+// 1. Funcion declarada / Named function o basic function
+// Declaracion basica de JS usa la keyword function
+// Se recomienda para funciones con nombre o cuando se necesite hoisting
+saludar();
+
+function saludar() {
+    console.log("Hola mundo");
+}
+
+
+// 2. Funcion expresada / Function expression
+// Funcion adentro de una variable
+// Utiles para funcones anonimas, para controlar donde va a estar disponible la funcion o para usar como argumento para otra funcion
+const saludar2 = function() {
+    console.log("Hola mundo 2");
+}
+
+saludar2();
+
+
+
+// 3. Funcion anonima / Anonymous function
+// No tiene nombre y se usan como callbacks generalmente
+/*
+setTimeout(function() {
+    console.log("Hola mundo 3");
+}, 1000);
+*/
+
+// 4. Funcion de flecha / Arrow function
+// Especialmente util para escribir funciones de una linea
+const sumar = (a, b) => a + b;
+
+
+
+
+
+// Tipos de funciones flecha
+// 1. Funcion flecha con mas de una instruccion
+const saludarPersona = nombre => {
+    const saludo = `Hola ${nombre}!`;
+    return saludo;
+}
+
+console.log(saludarPersona("Nahuel"));
+
+
+// 2. Sin parametros
+const saludar3 = () => console.log("Hola!");
+saludar3();
+
+// 3. Un solo parametro
+const cuadrado = x => x * x; 
+console.log(cuadrado(4));
+
+// 4. Mas de un parametro
+const sumar2 = (a, b) => a + b;
+console.log(sumar2(2, 3));
+
+
+
+/////////////////////
+// Scope (Ambito) //
+
+// Es el contexto en el cual las variables y las funciones son accesibles y pueden ser referenciadas
+
+// Global Scope o Ambito global
+// Las variables declaradas fuera de cualquier funcion o bloque {} tienen alcance global y son accesibles desde cualquier parte del codigo
+
+var globalVar = "Soy global";
+
+function mostrarGlobal() {
+    console.log(globalVar);
+}
+
+mostrarGlobal(); // Soy global
+
+console.log(globalVar); // Soy global
+
+
+
+
+// Local Scope - Function scope o Ambito local o de funcion
+// Las variables declaradas dentro de una funcion solo son accesibles dentro de esa funcion -> ambito local
+
+function mostrarLocal() {
+    var localVar = "Soy local";
+    console.log(localVar);
+}
+
+mostrarLocal(); // Soy local
+// console.log(localVar); // Uncaught ReferenceError: localVar is not defined
+
+
+
+// Block Scope o Ambito de bloque
+// A partir de ES6 (JavaScript 2015), las variables let y const tienen alcance de bloque
+// Esto significa que solo son accesibles dentro del bloque en que se declararon {} (if, for, etc)
+
+if(true) {
+    let bloqueBar = "Soy de bloque";
+    console.log(bloqueBar);
+}
+
+// console.log(bloqueBar); // Uncaught ReferenceError: bloqueBar is not defined
+
+
+console.log("//////////////////");
+
+// Scope Chain o Cadena de Ambito
+// Cuando intentamos acceder a una variable, JavaScript busca en la cadena de ambito.
+// Comienza por el contexto (ambito) mas itnerno y va moviendose hacia los externos hasta encontrar la variable o llegar al ambito global
+
+var globalVar2 = "Soy global 2 papa!";
+
+function externa() {
+    var externaVar = "Soy de externa papa!";
+
+    function interna() {
+        var internaVar = "Holu, yo soy de interna";
+
+        console.log(globalVar2);
+        console.log(externaVar);
+        console.log(internaVar);
+    }
+
+    interna();
+    // console.log(internaVar); // Uncaught ReferenceError: internaVar is not defined
+}
+
+externa();
+
+
+// Consejo extra: Siempre intenten ver hasta donde llega el codigo con un console.log("test");
+
+
+
+ // Function Scope (Ambito de funcion) vs Block Scope (Ambito de bloque)
+ // Con function scope, las variables declaradas con var tienen ambito de funcion. 
+ // Por tanto si se declaran adentro de una funcion, no son accesibles fuera de esa funcion, pero NO estan limitadas por bloques
+
+ function scopeFunction() {
+    if(true) {
+        var funcionVar = "Soy de funcion!";
+    }
+
+    console.log(funcionVar);
+ }
+
+ scopeFunction();
+
+
+ // Con block scope, las variables let y const estan limitadas por el BLOQUE {} en el que se declaran
+function scopeBloque() {
+    if(true) {
+        let bloqueLet = "Soy de bloque!";
+        const bloqueConst = "Yo soy de bloque tambien! Quien sos?";
+    }
+
+    // console.log(bloqueLet); // Uncaught ReferenceError: bloqueLet is not defined
+    // console.log(bloqueConst); // Uncaught ReferenceError: bloqueConst is not defined
+}
+
+scopeBloque();
+
+
+function ejemplo() {
+    let ejemploLet = "BOOOOOOOOOOOOCAAAAAAAAAAAAA";
+    console.log(ejemploLet);
+}
+
+ejemplo();
+//console.log(ejemploLet);
+
+
+
+///////////////////////////
+// Hoisting (Elevacion) //
+// Las declaraciones de variables y funcion en JavaScript se mueven hacia arriba de su contexto de ejecucion
+// Solo las declaraciones son elevadas, no las inicializaciones
+
+// variables con var: Se elevan y se inicializan con undefined
+
+console.log(elevadaVar);
+var elevadaVar = "Soy elevada!";
+console.log(elevadaVar);
+
+// variables con let y const: Se elevan pero NO se inicializan (de hecho nos tira un error al acceder antes de la declaracion)
+
+//console.log(elevadaLet); // Uncaught ReferenceError: Cannot access 'elevadaLet' before initialization
+let elevadaLet = "Soy una let elevada!";
+console.log(elevadaLet);
+
+
+
+// Diferencias entre var, let y const
+
+// var: Tiene ambito de funcion (se declara dentro de la funcion actual y esta disponible en todo momento) y permite la redeclaracion y la reasignacion
+
+// let: Tiene ambito de bloque (se declara dentro de un bloque {}) y sólo está disponible dentro de ese bloque. También permite la redeclaración pero no la reasignación
+
+// const: Tiene ambito de bloque (se declara dentro de un bloque {}) y sólo está disponible dentro de ese bloque. Pero a difernecia de let, prohibe la reasignacion y la redeclaracion
+
+let i = 0;
+
+function muestraLet() {
+    i = 1;
+    let j = 2;
+
+    if(true) {
+        console.log(i);
+        console.log(j);
+    }
+}
+
+console.log(i);
+muestraLet();
+
+
+console.log("//////////////////");
+
+function muestraLet2() {
+    let x = 1;
+    {
+        let y = 2;
+        console.log(y); // 2
+    }
+
+    console.log(x); // 1
+    // console.log(y); // Error: y is not defined
+}
+
+muestraLet2();
+
+
+// Recomendaciones
+// Usaremos const para variables de solo lectura, como constantes u objetos inmutables
+// Usaremos let para variables que puedan cambiar con el tiempo pero que no deban volver a declararse
+// Evitar siempre usar ar debido a su ambito global o de funcion que puede dar lugar a bugs y problemas
+
+const PI = 3.1416;
+
+let contador = 0;
+contador++;
+console.log(contador);
+
+// NO RECOMENDADO: var
+var x = 10;
+x = 20;
+
+
+```
+
 ## JavaScript II
 ```js
 ////////////////////
