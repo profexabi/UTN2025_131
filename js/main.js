@@ -104,4 +104,104 @@ contenedor.innerHTML = `<ul>
                         `;
 
 
-// TODO terminar de ver eventos
+//////////////                        
+// Eventos //
+
+/*  Permiten a los desarrolldores detectar las interacciones del usuario en la pagina,  desde hacer click en un boton, mover el mouse, escribir en un campo de texto, etc. 
+
+    Un evento es una señal que se envia cuando ocurre una interaccion o cambio en el documento. JavaScript permite escuchar (listen) estos eventos y ejecutar funciones especificas cuando ocurren.
+
+        - click: Cuando el usuario hace click en un evento
+        - mouseover: Cuando el usuario pasa el mouse sobre un evento
+        - input: Cuando el usuario introduce
+        - submit cuando enviamos un formulario
+*/
+
+////////////////////////
+// Manejo de eventos //
+// Para escuchar (listen) un evento y hacer algo a partir de ese evento, podemos usar elmetodo addEventListener() y adjuntar una funcion a un evento especifico en un elemento
+
+// Escuchar un elemento click
+let boton2 = document.getElementById("boton2");
+
+// addEventListener() -> Añadir un evento de escucha
+boton2.addEventListener("click", function() {
+    console.log("Hiciste click!");
+});
+
+
+/* Tipos comunes de eventos
+    
+    - Eventos de mouse: click, dblclick, mouseover, mouseout, mousemove
+
+    - Eventos de teclado: keydown, keyup, keypress -> deprecado
+
+    - Eventos de formulario: submit, change, input, focus
+
+    - Eventos de ventana: resize, scroll, load, unload
+*/
+
+/*
+    //////////// 
+    // event //
+
+'event' lo pasamos como argumento. Es un objeto que contiene todos los datos del evento
+usaremos la palabra event (o cualquier otra) para acceder a la informacion del evento
+
+    - event.key: Representa el caracter o nombre de la tecla presionada
+    - event.code: Representa el codigo fisico de la tecla (independientemente del idioma del teclado)
+
+*/
+
+let inputTexto = document.getElementById("inputTexto");
+
+// Escuchar el evento de pulsacion de tecla
+inputTexto.addEventListener("keydown", function(event) {
+    
+    if(event.key === "Escape") {
+        alert("De que querés escapar.. cobarde!!");
+    }
+    
+    console.log(`Tecla presionada: ${event.key}`);
+    console.log(`Codigo fisico: ${event.code}`);
+});
+
+
+/////////////////////////////
+// Propagacion de eventos //
+
+/* Sucede cuando ocurre un evento y se propaga a traves del DOM en 2 fases
+
+    - Fase de captura: de arriba para abajo
+
+    - Fase de burbuja (bubbling): De abajo para arriba
+
+    Podemos detener la propagacion de un evento usando el metodo event.stopPropagation()
+*/
+
+let padre = document.getElementById("padre");
+let hijo = document.getElementById("hijo");
+
+// Escuchar el click en el div padre
+padre.addEventListener("click", function() {
+    console.log("Se hizo click en el div padre");
+});
+
+// Escuchar el click en el boton
+hijo.addEventListener("click", function(event) {
+    event.stopPropagation(); // Detenemos la propagacion
+    console.log("Se hizo click en el boton hijo");
+});
+
+
+// preventDefault() para evitar el comportamiento predeterminado de un elemento, ej evitar que un formulario se envie al hacer click en el boton submit
+
+let formulario = document.getElementById("formulario");
+
+// Evitamos que el formulario se envie con event.preventDefault()
+// No es que querramos no enviar la info del formulario, queremos evitar el envio por defecto de HTML y manejarlo nosotros con JavaScript
+
+formulario.addEventListener("submit", function(event) {
+    event.preventDefault();
+    console.log("Formulario no enviado");
+});

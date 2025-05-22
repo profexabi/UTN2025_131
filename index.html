@@ -19,7 +19,26 @@
     <p id="miParrafo"></p>
 
     <input id="boton" type="button" value="Soy un boton">
+    <input id="boton2" type="button" value="Soy un boton 2">
+
+    <br><br>
+    <input type="text" id="inputTexto">
 
     <div id="contenedor"></div>
+
+    <!-- Propagacion de eventos -->
+    <div id="padre">
+        <button id="hijo">Soy un hijo boton!!</button>
+    </div>
+
+    <br><br>
+    <!-- Ejemplo formulario -->
+    <form id="formulario" action="/action_page.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
