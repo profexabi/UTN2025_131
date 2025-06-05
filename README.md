@@ -6,7 +6,7 @@ Repositorio de la TUP UTN 2025, Comision 131
 // JSON, asincronia, promesas, fetch, async/await, try/catch
 ```
 
-## [JavaScript VII]()
+## [JavaScript VII](https://youtu.be/ItKIBIxHmnw)
 ```js
 /////////////////////
 // JavaScript VII //
