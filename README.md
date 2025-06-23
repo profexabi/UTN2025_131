@@ -1,6 +1,14 @@
 # UTN2025_131 :telescope:
 Repositorio de la TUP UTN 2025, Comision 131
 
+## [Clase Express.js II](https://www.youtube.com/watch?v=dP2TzIGGTmk)
+- Iniciando proyecto Express.js
+- Trabajando con variables de entorno y `mysql2`
+- Creando endpoints para `GET` y `GET by id`
+- Haciendo solicitudes a esos endpoints desde el cliente
+
+---
+
 ## [Node.js y Express.js](https://youtu.be/ctbN2bbQRIs)
 #### Codigo de Express.js en `proyectoExpress/index.js`
 ```js
