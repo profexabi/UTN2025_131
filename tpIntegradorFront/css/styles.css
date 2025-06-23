@@ -1,0 +1,45 @@
+/* /////////////
+    Estilos globales
+///////////// */
+h1 {
+    text-align: center;
+}
+
+
+/* /////////////
+    Header
+///////////// */
+
+#listado-nav {
+    border: 2px solid #e3bc5e;
+    display: flex;
+    justify-content: space-around;
+}
+
+#listado-nav li {
+    list-style-type: none;
+}
+
+
+
+/* /////////////
+    index
+///////////// */
+.li-listados {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e3bc5e;
+    font-size: 16px;
+    padding-right: 10px;
+    border-radius: 3px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.productos-listados {
+    justify-content: space-between;
+}
+
+.img-listados {
+    width: 65px;
+}

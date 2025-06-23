@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traer productos por id</title>
+
+    <!-- Tema classless CSS para estilado por defecto -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya@css/bahunya-0.1.3.css"/>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+            <ul id="listado-nav">
+                <a href="index.html">
+                    <li class="links-header"><span>GET</span></li>
+                </a>
+                
+                <a href="get.html">
+                    <li class="links-header"><span>Get : id</span></li>
+                </a>
+                <a href="post.html">
+                    <li class="links-header"><span>POST</span></li>
+                </a>
+                
+                <a href="put.html">
+                    <li class="links-header"><span>PUT</span></li>
+                </a>
+                <a href="delete.html">
+                    <li class="links-header"><span>DELETE</span></li>
+                </a>
+            </ul>
+
+    </header>
+
+    <hr>
+    <h1 class="titulo">Traer productos por id</h1>
+    <hr>
+
+
+    <main id="contenedor-get">
+        <div id="productos-container" class="crudForm-container">
+            <h2>Consultar producto</h2>
+            <form id="getProduct-form">
+                <label for="idProd">Id producto</label>
+                <input type="number" name="idProd" id="idProd">
+
+                <input type="submit" value="Consultar producto">
+            </form>
+        </div>
+
+
+        <div id="getId-container">
+            <ul id="getId-list"></ul>
+        </div>
+    </main>
+
+
+
+    <script>
+
+        let getId_lista = document.getElementById("getId-list");
+        let getProduct_form = document.getElementById("getProduct-form");
+
+        getProduct_form.addEventListener("submit", async(event) => {
+
+            event.preventDefault(); // Evitamos el envio por defecto del formulario
+
+
+            try {
+                // Como obtenemos y almacenamos en JavaScript la informacion de un formulario?
+                let formData = new FormData(event.target);
+                console.log(formData);
+
+                // Aca transformamos el objeto FormData en un objeto JS normal
+                let data = Object.fromEntries(formData.entries());
+                console.log(data); // idProd: "2"
+
+                // Ahora si, almacenamos el valor numerico del formulario para pasarselo a la peticion fetch
+                let idProd = data.idProd;
+                console.log(idProd); // 2
+
+
+                let response = await fetch(`http://localhost:3000/products/${idProd}`);
+
+                let datos = await response.json();
+                console.log(datos);
+
+                /////////////////////////////////////////
+                // TODO, optimizar consulta!!!!!!!!!!!!!
+                ////////////////////////////////
+
+                let producto = datos.payload[0]; // El primer resultado es el que contiene el producto que nos devolvio la consulta
+                console.log(producto);
+
+                let htmlProductos = `
+                <li class="li-listados productos-listados">
+                    <img src="${producto.image}" alt="${producto.nombre}" class="img-listados">
+                    <p>Id: ${producto.id} / Nombre: ${producto.name} / <strong>Precio: $${producto.price}</strong></p>
+                </li>
+                `;
+
+                getId_lista.innerHTML = htmlProductos;
+
+            } catch (error) {
+                console.error("Error al obtener el producto: ", error);
+            }
+
+        })
+    </script>
+</body>
+</html>
