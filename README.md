@@ -1,6 +1,14 @@
 # UTN2025_131 :telescope:
 Repositorio de la TUP UTN 2025, Comision 131
 
+
+## [Clase Express.js III](https://youtu.be/90GLO0QwH7E)
+- Creados endpoints `POST`, `PUT` y `DELETE`
+- Creados middlewares `logger` y `validateId`
+- Creadas vistas para realizar solicitudes a esos endpoints
+
+---
+
 ## [Clase Express.js II](https://www.youtube.com/watch?v=dP2TzIGGTmk)
 - Iniciando proyecto Express.js
 - Trabajando con variables de entorno y `mysql2`
