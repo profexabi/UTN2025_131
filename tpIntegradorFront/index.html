@@ -63,11 +63,13 @@
             .catch(error => console.error("Error", error));
         */ 
 
+        const url = "http://localhost:3000/api";
+
         // Metodo 2 con async await
         async function obtenerDatosProductos() {
             try {
                 // Esperamos la respuesta de la peticion fetch
-                let respuesta = await fetch("http://localhost:3000/products");
+                let respuesta = await fetch(`${url}/products`);
                 console.log(respuesta);
 
                 // Esperamos a convertir a objetos JS

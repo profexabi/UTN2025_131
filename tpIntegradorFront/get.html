@@ -58,7 +58,7 @@
 
 
     <script>
-
+        const url = "http://localhost:3000/api";
         let getId_lista = document.getElementById("getId-list");
         let getProduct_form = document.getElementById("getProduct-form");
 
@@ -81,7 +81,7 @@
                 console.log(idProd); // 2
 
 
-                let response = await fetch(`http://localhost:3000/products/${idProd}`);
+                let response = await fetch(`${url}/products/${idProd}`);
 
                 let datos = await response.json();
                 console.log(datos);

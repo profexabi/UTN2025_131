@@ -2,6 +2,13 @@
 Repositorio de la TUP UTN 2025, Comision 131
 
 
+## [Clase Express.js IV](https://youtu.be/fvjc8Fxe8KU)
+- Modularizadas rutas con `Router`
+- Desacoplados Middlewares
+- Aplicado Patron MVC (Modelo, Vista, Controlador)
+
+---
+
 ## [Clase Express.js III](https://youtu.be/90GLO0QwH7E)
 - Creados endpoints `POST`, `PUT` y `DELETE`
 - Creados middlewares `logger` y `validateId`
