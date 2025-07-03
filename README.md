@@ -2,6 +2,15 @@
 Repositorio de la TUP UTN 2025, Comision 131
 
 
+## [Clase Express V](https://youtu.be/vxIyhyGyxIY)
+- Configuracion para trabajar con archivos y rutas en Express
+- Setup para servir archivos estáticos `src/public` y vistas `src/views`
+- Setup de EJS y creacion de plantillas del Dashboard para hacer operaciones CRUD (Create, Read, Update, Delete)
+- Creadas rutas y controladores para las vistas
+- Generación de tickets desde el cliente con la biblioteca [jsPDF](https://github.com/parallax/jsPDF)
+
+---
+
 ## [Clase Express.js IV](https://youtu.be/fvjc8Fxe8KU)
 - Modularizadas rutas con `Router`
 - Desacoplados Middlewares

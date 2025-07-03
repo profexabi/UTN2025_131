@@ -1,0 +1,28 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+    
+<hr>
+<h1 class="titulo"><%= title %></h1>
+<hr>
+
+<main id="contenedor-get">
+    <div id="productos-container">
+        <ul id="productos-lista">
+            <% products.forEach(prod => { %>
+            
+                <li class="li-listados productos-listados">
+                    <img src="<%= prod.image %>" alt="Imagen <%= prod.name %>" class="img-listados">
+                    <p>Id: <%= prod.id %> / Nombre: <%= prod.name %>/ <strong>Precio: <%= prod.price %></strong></p>
+                </li>
+            <!--
+            <li class="li-listados productos-listados">
+                <img src="" alt="" class="img-listados">
+                <p>Id: / Nombre: / <strong>Precio: </strong></p>
+            </li>
+            -->
+            <% }) %>
+        </ul>
+    </div>
+</main>
+
+<%- include("partials/footer") %>

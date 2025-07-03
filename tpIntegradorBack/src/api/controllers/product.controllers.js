@@ -1,4 +1,3 @@
-import connection from "../database/db.js";
 import Products from "../models/product.models.js";
 
 
@@ -20,7 +19,7 @@ export const getAllProducts = async (req, res) => {
         // Aca devolvemos el texto plano JSON con toda la informacion de los productos
         res.status(200).json({
             payload: rows,
-            message: rows.length === 0 ? "No se encontraron usuarios" : "Usuarios encontrados"
+            message: rows.length === 0 ? "No se encontraron productos" : "productos encontrados"
         });
 
     } catch (error) {

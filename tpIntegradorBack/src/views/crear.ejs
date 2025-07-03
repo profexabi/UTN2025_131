@@ -1,0 +1,33 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+    
+<hr>
+<h1 class="titulo"><%= title %></h1>
+<hr>
+
+<div id="altaProducts-container" class="crudForm-container">
+    <h2>Alta producto</h2>
+    <form id="altaProducts-form" autocomplete="off">
+
+        <label for="categoryProd">Categoria</label>
+        <select name="category" id="categoryProd" required>
+            <option value="food">food</option>
+            <option value="drink">drink</option>
+        </select>
+
+        <label for="imagenProd">Imagen</label>
+        <input type="text" name="image" id="imagenProd" required>
+
+        <label for="nombreProd">Nombre</label>
+        <input type="text" name="name" id="nombreProd" required>
+
+        <label for="precioProd">Precio</label>
+        <input type="number" name="price" id="precioProd" required>
+
+        <input type="submit" value="Crear producto">
+    </form>
+</div>
+
+<script src="/js/crear.js"></script>
+
+<%- include("partials/footer") %>
