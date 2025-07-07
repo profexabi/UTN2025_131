@@ -2,6 +2,12 @@
 Repositorio de la TUP UTN 2025, Comision 131
 
 
+## [Clase Express VI](https://youtu.be/T_7Fe0TV_fk)
+- Repaso general backend
+- API Rest MVC minima
+
+---
+
 ## [Clase Express V](https://youtu.be/vxIyhyGyxIY)
 - Configuracion para trabajar con archivos y rutas en Express
 - Setup para servir archivos estáticos `src/public` y vistas `src/views`
