@@ -2,6 +2,12 @@
 Repositorio de la TUP UTN 2025, Comision 131
 
 
+## [Clase Express VI EXTRA](https://youtu.be/GePJFMR-unc?feature=shared&t=7988)
+- **Qué es JWT**
+- **Deploy Frontend y Backend con Vercel**
+
+---
+
 ## [Clase Express VI](https://youtu.be/T_7Fe0TV_fk)
 - Repaso general backend
 - API Rest MVC minima
